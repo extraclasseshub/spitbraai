@@ -11,18 +11,29 @@ interface ServiceCardProps {
 
 export const ServiceCard: React.FC<ServiceCardProps> = ({ service, onViewDetails, onGetQuote, spitbraaiType }) => {
   const getDisplayPrice = () => {
-    if (service.basePrice === 0) {
-      return 'Quote on Request';
-    }
-    
+    if (service.basePrice === 0) return 'Quote on Request';
+
     if (service.category === 'equipment') {
-      if (spitbraaiType === 'gas') {
-        return `From R${service.basePrice + 400}`;
-      }
-      return `From R${service.basePrice}`;
+      return spitbraaiType === 'gas'
+        ? `From R${service.basePrice + 400}`
+        : `From R${service.basePrice}`;
     }
-    
+
     return `From R${service.basePrice}`;
+  };
+
+  // Fixed scroll function to consider navbar height
+  const handleGetQuote = () => {
+    const navbarHeight = 64; // Adjust if your navbar is taller
+    const element = document.getElementById('contact');
+    if (element) {
+      const elementPosition = element.getBoundingClientRect().top + window.scrollY;
+      window.scrollTo({
+        top: elementPosition - navbarHeight,
+        behavior: 'smooth'
+      });
+    }
+    onGetQuote?.();
   };
 
   return (
@@ -39,11 +50,7 @@ export const ServiceCard: React.FC<ServiceCardProps> = ({ service, onViewDetails
         </div>
         {spitbraaiType && (service.category === 'spitbraai' || service.category === 'equipment') && (
           <div className="absolute top-2 left-2 bg-gray-800 text-white px-2 py-1 rounded-full text-xs font-semibold flex items-center space-x-1">
-            {spitbraaiType === 'charcoal' ? (
-              <Flame className="h-3 w-3" />
-            ) : (
-              <Zap className="h-3 w-3" />
-            )}
+            {spitbraaiType === 'charcoal' ? <Flame className="h-3 w-3" /> : <Zap className="h-3 w-3" />}
             <span>{spitbraaiType === 'charcoal' ? 'Charcoal' : 'Gas'}</span>
           </div>
         )}
@@ -57,7 +64,7 @@ export const ServiceCard: React.FC<ServiceCardProps> = ({ service, onViewDetails
             <span className="text-sm">{service.servings}</span>
           </div>
         )}
-        <div className="flex justify-center">
+        <div className="flex justify-center gap-3">
           <button
             onClick={() => onViewDetails(service)}
             className="border border-orange-600 text-orange-600 hover:bg-orange-50 px-4 py-2 rounded-full flex items-center space-x-2 transition-colors font-semibold"
@@ -66,13 +73,12 @@ export const ServiceCard: React.FC<ServiceCardProps> = ({ service, onViewDetails
             <span>View Details</span>
           </button>
           <button
-  onClick={handleGetQuote}
-  className="bg-orange-600 hover:bg-orange-500 text-white px-8 py-4 rounded-full font-bold text-lg transition-all duration-300 transform hover:scale-105 shadow-xl flex items-center space-x-2"
->
-  <Phone className="h-5 w-5" />
-  <span>Get Quote</span>
-</button>
-
+            onClick={handleGetQuote}
+            className="bg-orange-600 hover:bg-orange-700 text-white px-6 py-2 rounded-full flex items-center space-x-2 transition-colors font-semibold"
+          >
+            <Phone className="h-4 w-4" />
+            <span>Get Quote</span>
+          </button>
         </div>
       </div>
     </div>
