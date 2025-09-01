@@ -66,12 +66,13 @@ export const ServiceCard: React.FC<ServiceCardProps> = ({ service, onViewDetails
             <span>View Details</span>
           </button>
           <button
-            onClick={onGetQuote}
-            className="bg-orange-600 hover:bg-orange-700 text-white px-6 py-2 rounded-full flex items-center space-x-2 transition-colors font-semibold"
-          >
-            <Phone className="h-4 w-4" />
-            <span>Get Quote</span>
-          </button>
+  onClick={handleGetQuote}
+  className="bg-orange-600 hover:bg-orange-500 text-white px-8 py-4 rounded-full font-bold text-lg transition-all duration-300 transform hover:scale-105 shadow-xl flex items-center space-x-2"
+>
+  <Phone className="h-5 w-5" />
+  <span>Get Quote</span>
+</button>
+
         </div>
       </div>
     </div>
