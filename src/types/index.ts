@@ -1,16 +1,13 @@
-export interface Meal {
+export interface Service {
   id: string;
   name: string;
   description: string;
-  price: number;
+  basePrice: number;
   image: string;
-  category: 'spitbraai' | 'sides' | 'desserts';
+  category: 'spitbraai' | 'equipment' | 'catering' | 'corporate' | 'wedding';
   servings?: string;
+  includes: string[];
   spitbraaiType?: SpitbraaiType;
-}
-
-export interface CartItem extends Meal {
-  quantity: number;
 }
 
 export type SpitbraaiType = 'charcoal' | 'gas';
@@ -19,5 +16,5 @@ export interface CustomerDetails {
   name: string;
   phone: string;
   email: string;
-  address: string;
+  message: string;
 }
