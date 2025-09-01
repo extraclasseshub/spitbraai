@@ -217,7 +217,7 @@ export const Chatbot: React.FC<ChatbotProps> = ({ onGetQuote }) => {
       </button>
 
       {/* Chat Window */}
-      <div className={`fixed bottom-24 left-6 w-96 h-[500px] bg-white rounded-lg shadow-2xl border border-gray-200 z-40 transition-all duration-300 transform ${
+      <div className={`fixed bottom-20 left-4 right-4 md:left-6 md:right-auto md:w-96 h-[70vh] md:h-[500px] max-h-[600px] bg-white rounded-lg shadow-2xl border border-gray-200 z-40 transition-all duration-300 transform ${
         isOpen 
           ? 'opacity-100 translate-y-0 scale-100' 
           : 'opacity-0 translate-y-4 scale-95 pointer-events-none'
@@ -242,10 +242,10 @@ export const Chatbot: React.FC<ChatbotProps> = ({ onGetQuote }) => {
         </div>
 
         {/* Messages */}
-        <div className="flex-1 p-4 h-80 overflow-y-auto space-y-4">
+        <div className="flex-1 p-4 overflow-y-auto space-y-4" style={{ height: 'calc(100% - 140px)' }}>
           {messages.map((message) => (
             <div key={message.id} className={`flex ${message.isBot ? 'justify-start' : 'justify-end'}`}>
-              <div className={`max-w-[80%] ${message.isBot ? 'order-2' : 'order-1'}`}>
+              <div className={`max-w-[85%] sm:max-w-[80%] ${message.isBot ? 'order-2' : 'order-1'}`}>
                 <div className={`flex items-start space-x-2 ${message.isBot ? '' : 'flex-row-reverse space-x-reverse'}`}>
                   <div className={`w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 ${
                     message.isBot ? 'bg-orange-600' : 'bg-gray-600'
@@ -261,7 +261,7 @@ export const Chatbot: React.FC<ChatbotProps> = ({ onGetQuote }) => {
                       ? 'bg-gray-100 text-gray-800' 
                       : 'bg-orange-600 text-white'
                   }`}>
-                    <p className="text-sm whitespace-pre-line">{message.text}</p>
+                    <p className="text-sm whitespace-pre-line break-words">{message.text}</p>
                   </div>
                 </div>
                 
@@ -272,7 +272,7 @@ export const Chatbot: React.FC<ChatbotProps> = ({ onGetQuote }) => {
                       <button
                         key={index}
                         onClick={() => handleQuickReply(reply)}
-                        className="text-xs bg-white border border-orange-600 text-orange-600 hover:bg-orange-50 px-3 py-1 rounded-full transition-colors"
+                        className="text-xs bg-white border border-orange-600 text-orange-600 hover:bg-orange-50 px-3 py-1 rounded-full transition-colors whitespace-nowrap"
                       >
                         {reply}
                       </button>
@@ -323,7 +323,7 @@ export const Chatbot: React.FC<ChatbotProps> = ({ onGetQuote }) => {
               <Send className="h-4 w-4" />
             </button>
           </div>
-          <p className="text-xs text-gray-500 mt-2 text-center">
+          <p className="text-xs text-gray-500 mt-2 text-center hidden sm:block">
             For immediate assistance, call +27 62 727 0654
           </p>
         </div>
