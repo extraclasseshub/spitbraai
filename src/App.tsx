@@ -220,13 +220,14 @@ function App() {
             Expert spitbraai catering and equipment hire for all your special occasions.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-            <a 
-              href="tel:+27627270654"
-              className="bg-orange-600 hover:bg-orange-500 text-white px-8 py-4 rounded-full font-bold text-lg transition-all duration-300 transform hover:scale-105 shadow-xl flex items-center space-x-2"
-            >
-              <Phone className="h-5 w-5" />
-              <span>Get Quote</span>
-            </a>
+            <button
+  onClick={handleGetQuote}
+  className="bg-orange-600 hover:bg-orange-500 text-white px-8 py-4 rounded-full font-bold text-lg transition-all duration-300 transform hover:scale-105 shadow-xl flex items-center space-x-2"
+>
+  <Phone className="h-5 w-5" />
+  <span>Get Quote</span>
+</button>
+
             <button 
               onClick={() => scrollToSection('about')}
               className="border-2 border-white text-white hover:bg-white hover:text-orange-600 px-8 py-4 rounded-full font-bold text-lg transition-all duration-300"
