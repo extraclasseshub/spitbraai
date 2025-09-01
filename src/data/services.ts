@@ -6,7 +6,7 @@ export const services: Service[] = [
     name: 'Whole Lamb Spitbraai',
     description: 'Professional whole lamb spitbraai service with traditional South African spices. Perfect for large gatherings and special occasions.',
     basePrice: 2500,
-    image: 'https://images.pexels.com/photos/1539684/pexels-photo-1539684.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop',
+    image: '/1.jpg',
     category: 'spitbraai',
     servings: '20-25 people',
     includes: [
@@ -22,7 +22,7 @@ export const services: Service[] = [
     name: 'Whole Pork Spitbraai',
     description: 'Succulent whole pork carcass seasoned with herbs and spices, slow-roasted to perfection on the spit.',
     basePrice: 1800,
-    image: 'https://images.pexels.com/photos/1105325/pexels-photo-1105325.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop',
+    image: '/2.jpg',
     category: 'spitbraai',
     servings: '15-20 people',
     includes: [
@@ -38,7 +38,7 @@ export const services: Service[] = [
     name: 'Equipment Hire Only',
     description: 'Rent our professional spitbraai equipment for your DIY event. Includes all necessary equipment and basic instructions.',
     basePrice: 800,
-    image: 'https://images.pexels.com/photos/1731427/pexels-photo-1731427.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop',
+    image: '/3.jpg',
     category: 'equipment',
     servings: 'Various sizes available',
     includes: [
@@ -53,7 +53,7 @@ export const services: Service[] = [
     name: 'Full Catering Package',
     description: 'Complete spitbraai catering service including meat, sides, professional service, and full event setup.',
     basePrice: 0,
-    image: 'https://images.pexels.com/photos/2313686/pexels-photo-2313686.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop',
+    image: '/4.jpg',
     category: 'catering',
     servings: 'Customizable',
     includes: [
@@ -70,7 +70,7 @@ export const services: Service[] = [
     name: 'Corporate Events',
     description: 'Professional spitbraai services tailored for corporate functions, team building events, and business gatherings.',
     basePrice: 0,
-    image: 'https://images.pexels.com/photos/1565982/pexels-photo-1565982.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop',
+    image: '/5.jpg',
     category: 'corporate',
     servings: 'Any group size',
     includes: [
@@ -86,7 +86,7 @@ export const services: Service[] = [
     name: 'Wedding Catering',
     description: 'Make your special day unforgettable with our premium wedding spitbraai catering services.',
     basePrice: 0,
-    image: 'https://images.pexels.com/photos/1539662/pexels-photo-1539662.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop',
+    image: '/6.jpg',
     category: 'wedding',
     servings: 'Any guest count',
     includes: [
