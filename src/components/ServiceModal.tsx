@@ -13,15 +13,10 @@ export const ServiceModal: React.FC<ServiceModalProps> = ({ service, isOpen, onC
   if (!isOpen || !service) return null;
 
   const getDisplayPrice = () => {
-    if (service.basePrice === 0) {
-      return 'Quote on Request';
-    }
+    if (service.basePrice === 0) return 'Quote on Request';
     
     if (service.category === 'equipment') {
-      if (spitbraaiType === 'gas') {
-        return `From R${service.basePrice + 400}`;
-      }
-      return `From R${service.basePrice}`;
+      return spitbraaiType === 'gas' ? `From R${service.basePrice + 400}` : `From R${service.basePrice}`;
     }
     
     return `From R${service.basePrice}`;
@@ -56,19 +51,19 @@ export const ServiceModal: React.FC<ServiceModalProps> = ({ service, isOpen, onC
             </div>
           )}
         </div>
-        
+
         <div className="p-6">
           <h2 className="text-2xl font-bold text-gray-900 mb-4">{service.name}</h2>
-          
+
           {service.servings && (
             <div className="flex items-center text-gray-600 mb-4">
               <Users className="h-5 w-5 mr-2" />
               <span>Serves {service.servings}</span>
             </div>
           )}
-          
+
           <p className="text-gray-700 mb-6 leading-relaxed">{service.description}</p>
-          
+
           <div className="bg-gray-50 p-4 rounded-lg mb-6">
             <h3 className="font-semibold text-gray-900 mb-3">What's Included:</h3>
             <ul className="text-gray-600 space-y-2">
@@ -81,12 +76,14 @@ export const ServiceModal: React.FC<ServiceModalProps> = ({ service, isOpen, onC
               {spitbraaiType && (service.category === 'spitbraai' || service.category === 'equipment') && (
                 <li className="flex items-start space-x-2">
                   <span className="text-orange-600 mt-1">•</span>
-                  <span>{spitbraaiType === 'charcoal' ? 'Charcoal/firewood cooking for authentic smoky flavor' : 'Gas cooking for consistent heat control and convenience'}</span>
+                  <span>{spitbraaiType === 'charcoal'
+                    ? 'Charcoal/firewood cooking for authentic smoky flavor'
+                    : 'Gas cooking for consistent heat control and convenience'}</span>
                 </li>
               )}
             </ul>
           </div>
-          
+
           <div className="flex space-x-4">
             <button
               onClick={onClose}
