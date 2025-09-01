@@ -44,6 +44,10 @@ function App() {
     setIsServiceModalOpen(true);
   };
 
+  const handleGetQuote = () => {
+    scrollToSection('contact');
+  };
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     
@@ -418,6 +422,7 @@ function App() {
                   key={service.id}
                   service={service}
                   onViewDetails={handleViewServiceDetails}
+                  onGetQuote={handleGetQuote}
                   spitbraaiType={selectedSpitbraaiType}
                 />
               ))}

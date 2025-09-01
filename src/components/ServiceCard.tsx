@@ -1,14 +1,15 @@
 import React from 'react';
-import { Users, Flame, Zap, Eye } from 'lucide-react';
+import { Users, Flame, Zap, Eye, Phone } from 'lucide-react';
 import { Service, SpitbraaiType } from '../types';
 
 interface ServiceCardProps {
   service: Service;
   onViewDetails: (service: Service) => void;
+  onGetQuote: () => void;
   spitbraaiType?: SpitbraaiType;
 }
 
-export const ServiceCard: React.FC<ServiceCardProps> = ({ service, onViewDetails, spitbraaiType }) => {
+export const ServiceCard: React.FC<ServiceCardProps> = ({ service, onViewDetails, onGetQuote, spitbraaiType }) => {
   const getDisplayPrice = () => {
     if (service.basePrice === 0) {
       return 'Quote on Request';
@@ -59,10 +60,17 @@ export const ServiceCard: React.FC<ServiceCardProps> = ({ service, onViewDetails
         <div className="flex justify-center">
           <button
             onClick={() => onViewDetails(service)}
-            className="bg-orange-600 hover:bg-orange-700 text-white px-6 py-2 rounded-full flex items-center space-x-2 transition-colors font-semibold"
+            className="border border-orange-600 text-orange-600 hover:bg-orange-50 px-4 py-2 rounded-full flex items-center space-x-2 transition-colors font-semibold"
           >
             <Eye className="h-4 w-4" />
             <span>View Details</span>
+          </button>
+          <button
+            onClick={onGetQuote}
+            className="bg-orange-600 hover:bg-orange-700 text-white px-6 py-2 rounded-full flex items-center space-x-2 transition-colors font-semibold"
+          >
+            <Phone className="h-4 w-4" />
+            <span>Get Quote</span>
           </button>
         </div>
       </div>
