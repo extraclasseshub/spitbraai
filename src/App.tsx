@@ -3,6 +3,7 @@ import { Phone, Mail, MapPin, Facebook, Menu, X, ChefHat, Users, Calendar, Star,
 import { services } from './data/services';
 import { ServiceCard } from './components/ServiceCard';
 import { ServiceModal } from './components/ServiceModal';
+import { Chatbot } from './components/Chatbot';
 import { Service, SpitbraaiType } from './types';
 
 function App() {
@@ -751,6 +752,9 @@ function App() {
         onClose={() => setIsServiceModalOpen(false)}
         spitbraaiType={selectedSpitbraaiType}
       />
+
+      {/* Chatbot */}
+      <Chatbot onGetQuote={handleGetQuote} />
     </div>
   );
 }
